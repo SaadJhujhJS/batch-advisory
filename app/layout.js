@@ -1,0 +1,34 @@
+import localFont from "next/font/local";
+import "./globals.css";
+import { AppProvider } from "@/context/AppContext";
+import { DbProvider } from "@/context/dbContext";
+
+const geistSans = localFont({
+  src: "./fonts/GeistVF.woff",
+  variable: "--font-geist-sans",
+  weight: "100 900",
+});
+const geistMono = localFont({
+  src: "./fonts/GeistMonoVF.woff",
+  variable: "--font-geist-mono",
+  weight: "100 900",
+});
+
+export const metadata = {
+  title: "Batch Advisory",
+  description: "A platform to manage and track batch advisory for students.",
+};
+
+export default function RootLayout({ children }) {
+  return (
+    <html lang="en">
+      <body
+        className={`${geistSans.variable} ${geistMono.variable} antialiased min-h-screen box-border`}
+      >
+        <DbProvider>
+          <AppProvider>{children}</AppProvider>
+        </DbProvider>
+      </body>
+    </html>
+  );
+}
