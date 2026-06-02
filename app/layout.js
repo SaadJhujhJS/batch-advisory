@@ -15,7 +15,7 @@ const geistMono = localFont({
 });
 
 export const metadata = {
-  title: "Batch Advisory",
+  title: "Batch Advisory System",
   description: "A platform to manage and track batch advisory for students.",
 };
 
